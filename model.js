@@ -8,10 +8,6 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const toggle = document.getElementById('windToggle');
 
-// // Constants: These must match physics.js exactly.
-// // I set this to 10,000 to stress-test the worker's performance.
-// const NUM_STEPS = 100000;
-// const TANGENT_COUNT = 6;
 
 // --- MEMORY ALLOCATION (SHARED ARRAY BUFFER) ---
 // Float32 takes 4 bytes. We need to calculate exactly how much memory to allocate
@@ -105,7 +101,7 @@ window.addEventListener('mousedown', e => {
         let py = inputView[i*2+1];
         let d = Math.sqrt((px - mouse.x)**2 + (py - mouse.y)**2);
         
-        if( (i === 1 || i === 2) && d < 30 ){
+        if( (i === 1 || i === 2) && d < POINT_SELECTION_MARGIN ){
             draggingIdx = i;
         }
     }
@@ -120,7 +116,7 @@ window.addEventListener('contextmenu', e => {
         let px = inputView[i*2];
         let py = inputView[i*2+1];
         let d = Math.sqrt((px - rx)**2 + (py - ry)**2);
-        if( d < 30 ){
+        if( d < POINT_SELECTION_MARGIN ){
             changingIdx = i;
         }
     }
@@ -192,8 +188,8 @@ function animate(){
     }
 
     // Draw Tangents (Red lines)
-    ctx.strokeStyle = 'rgba(255, 100, 100, 0.6)';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#FFA500';
+    ctx.lineWidth = 1;
     ctx.beginPath();
     for(let i = 0; i < tangentView.length; i+=4){
         // Skip empty memory
@@ -204,7 +200,7 @@ function animate(){
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = '#FFA500';
 
 for (let i = 0; i < tangentView.length; i += 4) {
     // Skip empty memory
@@ -212,9 +208,9 @@ for (let i = 0; i < tangentView.length; i += 4) {
 
     // IMPORTANT: Move to the starting edge of the circle to avoid connecting lines
     // Arc starts at 0 radians (3 o'clock), so we move to x + radius
-    ctx.moveTo(tangentView[i] + 3, tangentView[i + 1]); 
+    ctx.moveTo(tangentView[i] + 4, tangentView[i + 1]); 
     
-    ctx.arc(tangentView[i], tangentView[i + 1], 3, 0, Math.PI * 2);
+    ctx.arc(tangentView[i], tangentView[i + 1], 4, 0, Math.PI * 2);
 }
 ctx.fill();
 
