@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bézier Rope (Slider Toggle)</title>
+    <link rel="stylesheet" href="./model.css">
+</head>
+<body>
+
+<div id="ui-layer">
+    <h1>Bézier Physics Rope</h1>
+    <p>P0 & P3: Fixed (Red), P1 & P2: Dynamic (Green)</p>
+    <p><b>- Left Click and Drag</b> dynamic Points to pull the rope.</p>
+    <p><b>- Right Click and Drag</b> points to change stable position</p>
+    
+    <div class="toggle-container">
+        <span class="label-text">Wind Effect</span>
+        <label class="switch">
+            <input type="checkbox" id="windToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+
+<canvas id="canvas"></canvas>   
+<script src="utils.js"></script>
+
+<script src="model.js"></script>
+
+</body>
+</html>

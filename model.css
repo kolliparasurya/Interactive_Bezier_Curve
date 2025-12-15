@@ -1,0 +1,79 @@
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    background: #1a1a1a; 
+    color: white; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+canvas { display: block; }
+
+/* UI Container */
+#ui-layer {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    pointer-events: auto;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+h1 { font-size: 1.1rem; margin: 0 0 15px 0; color: #4facfe; }
+p { margin: 5px 0; font-size: 0.85rem; color: #ccc; }
+
+/* --- THE SLIDER SWITCH CSS --- */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input { 
+    opacity: 0; 
+    width: 0; 
+    height: 0; 
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #555;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* When Checked (ON) */
+input:checked + .slider {
+    background-color: #4facfe;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.label-text { font-size: 0.9rem; font-weight: bold; }
