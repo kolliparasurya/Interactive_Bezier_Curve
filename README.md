@@ -110,7 +110,7 @@ The internal control points \( P_1 \) and \( P_2 \) are treated as **particles a
 ### Forces Applied
 
 - **Spring Force**
-  F*s = -k * \(P\{current\} - P\_{base}\)
+  F*s = -k * \(P\{current\} - P\{base\}\)
 - **Damping**
 
   - Simulates air resistance
