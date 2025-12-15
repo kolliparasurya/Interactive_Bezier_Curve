@@ -12,6 +12,10 @@ The simulation renders a cubic Bézier curve defined by four control points:
 
 The internal control points react to mouse interaction and simulated wind forces using a **custom Spring–Mass–Damper physics model**.
 
+
+https://github.com/user-attachments/assets/25f22344-26a3-46ea-ab20-68b005fd784e
+
+
 ---
 
 ## 🚀 Key Features
